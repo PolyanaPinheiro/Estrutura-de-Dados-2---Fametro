@@ -1,3 +1,5 @@
+/* 3) Faça um programa que acumula n valores da sequência de Fibonacci em uma pilha. */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -93,4 +95,5 @@ int main() {
 
     return 0;
 }
+
 
