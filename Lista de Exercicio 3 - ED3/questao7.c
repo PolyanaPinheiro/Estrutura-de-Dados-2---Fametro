@@ -1,3 +1,9 @@
+/* 7) Faça um programa que cadastre em uma pilha vários números. A entrada deles será finalizada
+com a digitação de um número menor que 0. Posteriormente o programa deve gerar duas filas, a
+primeira com os números pares e a segunda com os números impares. A saída do programa
+deve apresentar a pilha digitada e as filas geradas. Caso alguma das filas seja vazia, deve-se
+mostrar a mensagem */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,7 +30,7 @@ int pop(Pilha *p) {
     return p->dados[p->topo--];
 }
 
-// --- Fun��es da Fila ---
+// --- Funções da Fila ---
 void criaFila(Fila *f) { f->inicio = 0; f->fim = 0; f->total = 0; }
 int filaVazia(Fila *f) { return f->total == 0; }
 int filaCheia(Fila *f) { return f->total == MAX; }
@@ -118,3 +124,4 @@ int main() {
     
     return 0;
 }
+
