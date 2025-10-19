@@ -1,3 +1,5 @@
+/* 2) Repita o exercício anterior só que agora utilizando duas filas F1 e F2. */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
@@ -214,3 +216,4 @@ int main() {
 
     return 0;
 }
+
