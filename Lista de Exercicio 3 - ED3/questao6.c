@@ -1,3 +1,12 @@
+/* 6) Apresente o menu de opções abaixo:
+1- Cadastrar aluno
+2- Cadastrar nota
+3- Calcular a média de um aluno
+4- Listar os nomes dos alunos sem notas
+5- Excluir aluno
+6- Excluir nota
+7- Sair */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -289,3 +298,4 @@ int main() {
 
     return 0;
 }
+
