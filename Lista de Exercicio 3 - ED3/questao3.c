@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define N_FIBONACCI 20
 #define MAX 100 
 
 typedef struct {
@@ -92,3 +93,4 @@ int main() {
 
     return 0;
 }
+
