@@ -1,3 +1,10 @@
+/* 4) Cadastre 5 números em uma fila dinâmica e mais 5 em uma pilha dinâmica. Em seguida, mostre
+três relatórios.
+I. Os números que estão nas duas estruturas.
+II. Os que estão na fila.
+III. Os que estão na pilha */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -196,3 +203,4 @@ int main() {
 
     return 0;
 }
+
