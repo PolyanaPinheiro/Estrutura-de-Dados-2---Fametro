@@ -1,3 +1,17 @@
+/* 5) Faça um programa que apresente o menu de opções abaixo:
+MENU
+1- Cadastrar número
+2- Mostrar números pares
+3- Excluir número
+4- Sair
+Observações:
+a) O programa deve ser implementado usando uma estrutura do tipo pilha
+b) A opção 1 do menu cadastra um número de cada vez.
+c) Mostrar mensagem para opção inválida do menu
+d) Mostrar mensagem para opção invalidade do menu. */
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h> 
@@ -125,3 +139,4 @@ int main() {
 
     return 0;
 }
+
