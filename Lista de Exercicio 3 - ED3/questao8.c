@@ -1,3 +1,12 @@
+/* 8) FaÃ§a um programa que apresente o menu de opÃ§Ãµes abaixo:
+MENU
+Cadastrar tipo
+Cadastrar produto
+Consultar preÃ§o de um produto
+Excluir tipo
+Sair */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,39 +14,37 @@
 
 #define MAX 50
 
-// --- Estruturas das Filas ---
 
-// Estrutura Tipo
 typedef struct {
     char letra;
     float percentualImposto;
 } Tipo;
 
-// Estrutura Produto
+
 typedef struct {
     int codigo;
     float preco;
     char tipo;
 } Produto;
 
-// Fila 1
+
 typedef struct {
     int inicio, fim, total;
     Tipo dados[MAX];
 } FilaTipos;
 
-// Fila 2
+
 typedef struct {
     int inicio, fim, total;
     Produto dados[MAX];
 } FilaProdutos;
 
-// --- Variáveis Globais ---
+
 FilaTipos fTipos;
 FilaProdutos fProdutos;
 int proximoCodProduto = 1;
 
-// --- Funções da Fila de Tipos ---
+
 void criaFilaTipos() { fTipos.inicio = 0; fTipos.fim = 0; fTipos.total = 0; }
 int filaTiposVazia() { return fTipos.total == 0; }
 int filaTiposCheia() { return fTipos.total == MAX; }
@@ -49,14 +56,12 @@ void enqueueTipo(Tipo t) {
     }
 }
 Tipo dequeueTipo() {
-    // Assume que não está vazia
     Tipo t = fTipos.dados[fTipos.inicio];
     fTipos.inicio = (fTipos.inicio + 1) % MAX;
     fTipos.total--;
     return t;
 }
 
-// --- Funções da Fila de Produtos ---
 void criaFilaProdutos() { fProdutos.inicio = 0; fProdutos.fim = 0; fProdutos.total = 0; }
 int filaProdutosVazia() { return fProdutos.total == 0; }
 int filaProdutosCheia() { return fProdutos.total == MAX; }
@@ -67,25 +72,19 @@ void enqueueProduto(Produto p) {
         fProdutos.total++;
     }
 }
-// Não há dequeue de produto no menu, exceto implicitamente na exclusão de tipo
-
-// --- Funções Auxiliares (Consultas) ---
-
-// Verifica se tipo existe
 int existeTipo(char letraTipo) {
     if (filaTiposVazia()) return 0;
     
     int idx = fTipos.inicio;
     for (int i = 0; i < fTipos.total; i++) {
         if (toupper(fTipos.dados[idx].letra) == toupper(letraTipo)) {
-            return 1; // Existe
+            return 1; 
         }
         idx = (idx + 1) % MAX;
     }
-    return 0; // Não existe
+    return 0;
 }
 
-// Pega o imposto de um tipo
 float getPercentualImposto(char letraTipo) {
     int idx = fTipos.inicio;
     for (int i = 0; i < fTipos.total; i++) {
@@ -94,26 +93,22 @@ float getPercentualImposto(char letraTipo) {
         }
         idx = (idx + 1) % MAX;
     }
-    return 0; // Se não achar (embora a validação de cadastro evite isso)
+    return 0; 
 }
 
-// Verifica se existem produtos de um tipo
 int existeProdutoDoTipo(char letraTipo) {
     if (filaProdutosVazia()) return 0;
     
     int idx = fProdutos.inicio;
     for (int i = 0; i < fProdutos.total; i++) {
         if (toupper(fProdutos.dados[idx].tipo) == toupper(letraTipo)) {
-            return 1; // Existe produto
+            return 1;
         }
         idx = (idx + 1) % MAX;
     }
-    return 0; // Não existe
+    return 0;
 }
 
-// --- Funções do Menu ---
-
-// 1- Cadastrar tipo
 void cadastrarTipo() {
     if (filaTiposCheia()) {
         printf("Mensagem: Fila de tipos cheia.\n");
@@ -129,7 +124,6 @@ void cadastrarTipo() {
     printf("Tipo cadastrado.\n");
 }
 
-// 2- Cadastrar produto
 void cadastrarProduto() {
     if (filaProdutosCheia()) {
         printf("Mensagem: Fila de produtos cheia.\n");
@@ -149,7 +143,7 @@ void cadastrarProduto() {
     printf("Digite o tipo (letra) do produto: ");
     scanf(" %c", &novoProduto.tipo);
 
-    // Validação
+   
     if (existeTipo(novoProduto.tipo)) {
         enqueueProduto(novoProduto);
         proximoCodProduto++;
@@ -159,7 +153,6 @@ void cadastrarProduto() {
     }
 }
 
-// 3- Consultar preco de um produto
 void consultarPreco() {
     if (filaProdutosVazia()) {
         printf("Fila vazia.\n");
@@ -196,21 +189,18 @@ void excluirTipo() {
         return;
     }
 
-    // Pega o primeiro tipo da fila (sem remover)
     Tipo tipoParaExcluir = fTipos.dados[fTipos.inicio]; 
     
-    // Validação
     if (existeProdutoDoTipo(tipoParaExcluir.letra)) {
         printf("Mensagem: O tipo %c nao pode ser excluido.\n", tipoParaExcluir.letra);
         printf("Primeiro e necessario excluir todos os produtos que fazem parte deste tipo.\n");
     } else {
-        dequeueTipo(); // Remove o tipo do início da fila
+        dequeueTipo(); 
         printf("Tipo %c (percentual %.2f%%) excluido com sucesso.\n", 
                tipoParaExcluir.letra, tipoParaExcluir.percentualImposto);
     }
 }
 
-// --- 5: Listar Tipos ---
 void listarTipos() {
     if (filaTiposVazia()) {
         printf("Nenhum tipo (categoria) cadastrado.\n");
@@ -225,7 +215,6 @@ void listarTipos() {
     }
 }
 
-// --- 6: Listar Produtos ---
 void listarProdutos() {
     if (filaProdutosVazia()) {
         printf("Nenhum produto cadastrado.\n");
@@ -247,9 +236,9 @@ void mostrarMenu() {
     printf("2- Cadastrar produto\n");
     printf("3- Consultar preco de um produto\n");
     printf("4- Excluir tipo\n");
-    printf("5- Listar Tipos (Categorias)\n"); // NOVO
-    printf("6- Listar Produtos\n");          // NOVO
-    printf("7- Sair\n");              // (era 5)
+    printf("5- Listar Tipos (Categorias)\n");
+    printf("6- Listar Produtos\n");         
+    printf("7- Sair\n");            
     printf("Escolha uma opcao: ");
 }
 
@@ -261,9 +250,8 @@ int main() {
     do {
         mostrarMenu();
         if (scanf("%d", &opcao) != 1) {
-            // Limpa o buffer de entrada se não for um número
             while (getchar() != '\n');
-            opcao = -1; // Força a opção inválida
+            opcao = -1; 
         }
 
         switch (opcao) {
@@ -271,8 +259,8 @@ int main() {
             case 2: cadastrarProduto(); break;
             case 3: consultarPreco(); break;
             case 4: excluirTipo(); break;
-            case 5: listarTipos(); break;       // NOVO
-            case 6: listarProdutos(); break;    // NOVO
+            case 5: listarTipos(); break;     
+            case 6: listarProdutos(); break;    
             case 7: printf("Saindo...\n"); break;
             default:
                 printf("Mensagem de opcao invalida no menu.\n");
@@ -281,3 +269,4 @@ int main() {
 
     return 0;
 }
+
