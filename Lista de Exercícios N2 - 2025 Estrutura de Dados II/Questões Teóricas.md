@@ -29,9 +29,9 @@ Exemplo Lista:
 ### 7. O que é uma lista simplesmente encadeada? Apresente um diagrama para ilustrar essa estrutura de dados.
 “Qualquer estrutura, inclusive listas, que seja armazenada em alocação encadeada requer o uso de um ponteiro que indique o endereço de seu primeiro nó. O percurso de uma lista é feito então a partir desse ponteiro. A ideia consiste em seguir consecutivamente pelos endereços existentes no campo que indica o próximo nó, da mesma forma que na alocação sequencial se acrescentava uma unidade ao índice do percurso.”
 
-![questao7](\imagens\questao7.png).
+![questao7](imagens/questao7.png).
 
-![questao7_1](/imagens/questao7_1.png).
+![questao7_1](imagens/questao7_1.png).
 
 `JAYME LUIZ SZWARCFITER; MARKENZON, L. Estruturas de dados e seus algoritmos. Rio De Janeiro: Ltc, 2010.`
 
