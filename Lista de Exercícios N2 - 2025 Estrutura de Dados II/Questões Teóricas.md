@@ -28,14 +28,15 @@ Exemplo Lista:
 
 ### 7. O que é uma lista simplesmente encadeada? Apresente um diagrama para ilustrar essa estrutura de dados.
 “Qualquer estrutura, inclusive listas, que seja armazenada em alocação encadeada requer o uso de um ponteiro que indique o endereço de seu primeiro nó. O percurso de uma lista é feito então a partir desse ponteiro. A ideia consiste em seguir consecutivamente pelos endereços existentes no campo que indica o próximo nó, da mesma forma que na alocação sequencial se acrescentava uma unidade ao índice do percurso.”
-//https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true
-!(imagens/questão7.png)
-!(imagens/questão7_1.png)
+
+!(/imagens/questao7.png)
+
+!(/imagens/questao7_1.png)
 `JAYME LUIZ SZWARCFITER; MARKENZON, L. Estruturas de dados e seus algoritmos. Rio De Janeiro: Ltc, 2010.`
 
 ### 8. O que é uma lista duplamente encadeada? Apresente um diagrama para ilustrar essa estrutura de dados.
 Na lista simplesmente encadeada é possível fazer referência ao espaço de memória do próximo nó, na duplamente, por poder haver cenários onde seja necessário a precursão da lista nos dois sentidos indiferentemente, se incorpora um novo campo de ponteiro, que tomam os nomes de ant (apontando para o nó anterior) e post (apontando para o nó seguinte)
-!(imagens/questão8.png)
+!(imagens/questao8.png)
 `JAYME LUIZ SZWARCFITER; MARKENZON, L. Estruturas de dados e seus algoritmos. Rio De Janeiro: Ltc, 2010.`
 
 ### 9. O que é uma lista duplamente encadeada? Apresente um diagrama para ilustrar essa estrutura de dados.
@@ -48,7 +49,7 @@ Na lista simplesmente encadeada é possível fazer referência ao espaço de mem
 `JAYME LUIZ SZWARCFITER; MARKENZON, L. Estruturas de dados e seus algoritmos. Rio De Janeiro: Ltc, 2010.`
 
 - Merge Soft: Primeiramente, o processo de intercalação será revisto. Sejam duas listas A e B, ordenadas, com respectivamente n e m elementos. As duas listas são percorridas por ponteiros ptA e ptB, armazenando o resultado da intercalação na lista C, apontada pelo ponteiro ptC. O primeiro elemento de A é comparado com o primeiro elemento de B; o menor valor é colocado em C. O ponteiro da lista onde se encontra o menor valor é incrementado, assim como o ponteiro da lista resultado; o processo se repete até que uma das listas seja esgotada. Neste ponto, os elementos restantes da outra lista são copiados na lista resultado. A Figura 7.3 ilustra o processo.
-!(imagens/questão11.png)
+!(imagens/questao11.png)
 `JAYME LUIZ SZWARCFITER; MARKENZON, L. Estruturas de dados e seus algoritmos. Rio De Janeiro: Ltc, 2010.`
 
 - Quick Sort: Dada uma tabela L com n elementos, o procedimento recursivo para ordenar L consiste nos seguintes passos:
